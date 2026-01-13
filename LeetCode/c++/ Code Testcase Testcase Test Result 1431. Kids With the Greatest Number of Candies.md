@@ -53,7 +53,7 @@ public:
 #### 1. 變數命名衝突風險
 ```cpp
 int max = candies[0]; // 可能與 std::max 衝突
-```
+
 雖然 `max` 不是 C++ 關鍵字，但 `std::max` 是常用函式，容易造成混淆。
 
 **建議改名**：`maxCandies` 或 `maxValue`
