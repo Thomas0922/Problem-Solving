@@ -4,7 +4,10 @@ class Solution {
 public:
     vector<bool> kidsWithCandies(vector<int>& candies, int extraCandies) {
         int max = candies[0];
-        vector<bool> result(candies.size());
+        vector<bool> result;
+        result.reserve(candies.size());
+         // 處理邊界情況
+        if (candies.empty()) return {};
         for(int i =0 ; i < candies.size(); i++){
             if(max <= candies[i])max = candies[i];
         }
