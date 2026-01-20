@@ -1,28 +1,23 @@
-#include<stdio.h>
+//原始解法
 
 int hammingWeight(int n) {
-    
-    int res =0;
+    int count = 0;
     while(n){
-        int bits = n&1;
-        if(bits){
-            res++;
+        if(n % 2 == 1){
+            count++;
         }
-        n = n>>1;
+        n = n / 2;
     }
-    return res;
+    return count;
 }
 
-int main(int argc,char *argv[]){
-    int input;
-    while(scanf("%d",&input)!=EOF){
-    if(input == -1)break;
-    int result = hammingWeight(input);
-     printf("%d\n",result);
-     
-     
+//最佳解法
+int hammingWeight(int n) {
+    //Brian Kernighan
+    int count = 0;
+    while(n){
+        n = n & (n - 1);
+        count++;
     }
- 
-    
-    return 0;
+    return count;
 }
