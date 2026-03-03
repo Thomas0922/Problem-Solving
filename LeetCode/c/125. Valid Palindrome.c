@@ -4,20 +4,22 @@
 #include<string.h>
 
 bool isPalindrome(char* s) {
-    int n =strlen(s);
     int left = 0;
-    int right = n-1;
-    while(left<right){
-        if(isalnum(s[left]) && isalnum(s[right])){
-            if(tolower(s[left])!=tolower(s[right]))return false;
+    int right = strlen(s) - 1;
+    while(left < right){
+        while(left < right && !isalnum(s[left])){
             left++;
+        }
+        while(right > left && !isalnum(s[right])){
             right--;
         } 
-        if (!isalnum(s[left])) left++;
-        if (!isalnum(s[right])) right--;
-       
-    }
-    return true;
+
+        if(tolower(s[left]) != tolower(s[right])){
+            return false;
+        }
+        left++;
+        right--;
+    }return true;
 }
     
 int main(){
@@ -26,4 +28,5 @@ int main(){
     if(isPalindrome(s))printf("true\n");
     else printf("false\n");
     return 0;
+
 }
